@@ -22,7 +22,7 @@ namespace MyProfile.Controllers
         }
         public IActionResult Contact()
         {
-           
+           //''''
             return View();
         }
       
