@@ -8,6 +8,14 @@ namespace MyProfile.Controllers
 {
     public class HomeController : Controller
     {
+       public List<Service> _services = new List<Service>
+        {
+            new Service(1,"نقره ای"),
+            new Service(2,"مسی"),
+            new Service(3,"طلایی"),
+            new Service(4,"پلاتین"),
+
+        };
         public IActionResult Index()
         {
             ViewData["headingTitle"] = "به سایت شخصی زینب رستمی  خوش آمدید";
@@ -20,19 +28,27 @@ namespace MyProfile.Controllers
         [HttpGet]
         public IActionResult Contact()
         {
-            var model = new Contact();
+
+            var model = new Contact()
+            {
+                services = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(_services, "Id", "Name")
+            };
             return View(model);
         }
         [HttpPost]
-        public IActionResult Contact(Contact contact)
+        public IActionResult Contact(Contact model)
         {
-            if(ModelState.IsValid== false)
+            model.services = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(_services, "Id", "Name");
+            if (ModelState.IsValid == false)
             {
                 ViewBag.Error = "اطلاعات وارد شده صحیح نمی باشد .";
-                return View(contact);
+                return View(model);
             }
-           ViewBag.success = "نظر شما با موفقیت ثبت شد.";
-            return View();
+            ModelState.Clear();
+
+            ViewBag.success = "نظر شما با موفقیت ثبت شد.";
+
+            return View(model);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace MyProfile.Models
         [MaxLength(500)]
         [EmailAddress]
         public string Email { get; set; }
-        
-        public string service { get; set; }
+        public int service { get; set; }
         public string message { get; set; }
+        public SelectList services { get; set; }
 
     }
 }

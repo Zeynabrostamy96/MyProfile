@@ -69,7 +69,7 @@
             </div>
         }
 
-        <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" asp-action="Contact">
+        <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto"  method="post"        asp-action="Contact" >
             <h3 class="text-center mb-3">در دسترس باشید!</h3>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -83,8 +83,8 @@
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group col-12">
-                    <select class="custom-select" asp-for="service">
-                        <option selected="selected">سرویس مورد نظر خود را انتخاب کنید...</option>
+                    <select class="custom-select" asp-for="service" asp-items="Model.services">
+                        <option value="0"   selected="selected">سرویس مورد نظر خود را انتخاب کنید...</option>
                     </select>
                 </div>
                 <div class="form-group col-12">
