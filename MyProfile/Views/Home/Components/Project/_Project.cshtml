@@ -1,4 +1,4 @@
-﻿@model List<Project>
+﻿@model List<project>
 @{
     ViewData["Title"] = "_Project";
 }
@@ -18,7 +18,7 @@
                         <div class="col-lg-8">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="project.html" class="theme-link">
+                                    <a asp-controller="Home" asp-action="DetailsProject" asp-route-id="@item.id"  class="theme-link">
                                      @item.id:@item.Name
                                     </a>
                                 </h5>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MyProfile.Models
 {
-    public class Project
+    public class project
     {
         public int id { get; set; }
         
@@ -13,7 +13,7 @@ namespace MyProfile.Models
         public  string Description { get; set; }
         public string Client { get; set; }
         public string Image { get; set; }
-        public Project(int Id,string name, string description, string client, string image)
+        public project(int Id,string name, string description, string client, string image)
         {
             id = Id;
             Name = name;
@@ -23,5 +23,6 @@ namespace MyProfile.Models
               
 
         }
+    
     }
 }

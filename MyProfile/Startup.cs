@@ -52,6 +52,15 @@ namespace MyProfile
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            // app.UseEndpoints(
+            //     endpoins =>
+            //     {
+            //         endpoins.MapControllerRoute(
+            //             "test","{controller=test}/{action=index}/{id?}"
+            //             );
+            //     }
+            //     );
         }
+
     }
 }

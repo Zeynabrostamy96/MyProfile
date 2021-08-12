@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MyProfile.Data;
 using MyProfile.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,7 +29,6 @@ namespace MyProfile.Controllers
         [HttpGet]
         public IActionResult Contact()
         {
-
             var model = new Contact()
             {
                 services = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(_services, "Id", "Name")
@@ -36,7 +36,7 @@ namespace MyProfile.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult Contact(Contact model)
+        public IActionResult  Contact(Contact model)
         {
             model.services = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(_services, "Id", "Name");
             if (ModelState.IsValid == false)
@@ -49,6 +49,11 @@ namespace MyProfile.Controllers
             ViewBag.success = "نظر شما با موفقیت ثبت شد.";
 
             return View(model);
+        }
+        public IActionResult DetailsProject(int id)
+        {
+            var project = ProjectStor.showproject(id);
+            return View(project);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
